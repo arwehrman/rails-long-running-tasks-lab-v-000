@@ -40,7 +40,7 @@ class SongsController < ApplicationController
 
   def upload
     CSV.foreach(params[:songs].path, headers: true) do |song|
-      Song.create(Song_Clean: song[0], ARTIST_Clean: song[1], Release_Year: song[2], COMBINED: song[3], First?: song[4], Year?: song[5], Play_Count: song[6], F*G: song[7])
+      Song.create(Song_Clean: song[0], ARTIST_Clean: song[1], Release_Year: song[2], COMBINED: song[3], First?: song[4], Year?: song[5], Play_Count: song[6])
     end
     redirect_to songs_path
   end
@@ -58,4 +58,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :artist_name)
   end
 end
-
